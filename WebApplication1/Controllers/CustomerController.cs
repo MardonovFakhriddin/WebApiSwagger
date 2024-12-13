@@ -1,4 +1,5 @@
 using Domain.Models;
+using Infrastructure.ApiResponse;
 using Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,28 +11,35 @@ namespace WebApplication1.Controllers;
 public class CustomerController(ICustomerService customerService) : ControllerBase
 {
     [HttpGet]
-    public List<Customer> GetAll()
+    public Response<List<Customer>> GetAll()
     {
         var response = customerService.GetAll();
         return response;
     }
 
+    [HttpPost("{id:int}")]
+    public Response<Customer> GetCustomerById(int id)
+    {
+        var response = customerService.GetCustomerById(id);
+        return response;
+    }
+
     [HttpPost]
-    public bool CreateCustomer(Customer customer)
+    public Response<bool> CreateCustomer(Customer customer)
     {
         var response = customerService.CreateCustomer(customer);
         return response;
     }
 
     [HttpPut]
-    public bool UpdateCustomer(Customer customer)
+    public Response<bool> UpdateCustomer(Customer customer)
     {
         var response = customerService.UpdateCustomer(customer);
         return response;
     }
 
     [HttpDelete]
-    public bool DeleteCustomer(int id)
+    public Response<bool> DeleteCustomer(int id)
     {
         var response = customerService.DeleteCustomer(id);
         return response;

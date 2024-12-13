@@ -1,11 +1,13 @@
-namespace Infrastructure.Interfaces; 
+using Infrastructure.ApiResponse;
+
+namespace Infrastructure.Interfaces;
 using Domain.Models;
 
 public interface ILocationService
 {
-    List<Location> GetAll();
-    Location GetLocationById(int id);
-    bool CreateLocation(Location location);
-    bool UpdateLocation(Location location);
-    bool DeleteLocation(int id);
+    Response<List<Location>> GetAll();
+    Response<Location> GetLocationById(int id);
+    Response<bool> CreateLocation(Location location);
+    Response<bool> UpdateLocation(Location location);
+    Response<bool> DeleteLocation(int id);
 }

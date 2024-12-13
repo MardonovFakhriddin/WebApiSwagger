@@ -1,11 +1,13 @@
+using Infrastructure.ApiResponse;
+
 namespace Infrastructure.Interfaces;
 using Domain.Models;
 
     public interface ICarLocationService
     {
-        List<CarLocation> GetAll();
- 		CarLocation GetCarLocationById(int id);
-        bool CreateCarLocation(CarLocation carLocation);
-        bool UpdateCarLocation(CarLocation carLocation);
-        bool DeleteCarLocation(int carId, int id);
+        Response<List<CarLocation>> GetAll();
+ 		Response<CarLocation> GetCarLocationById(int id);
+        Response<bool> CreateCarLocation(CarLocation carLocation);
+        Response<bool> UpdateCarLocation(CarLocation carLocation);
+        Response<bool> DeleteCarLocation(int carId, int id);
     }

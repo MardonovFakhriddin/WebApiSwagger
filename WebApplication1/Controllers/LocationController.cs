@@ -1,34 +1,43 @@
 using Domain.Models;
+using Infrastructure.ApiResponse;
 using Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication1.Controllers;
 
+[ApiController]
+[Route("api/[controller]")]
 public class LocationController(ILocationService locationService) : ControllerBase
 {
     [HttpGet]
-    public List<Location> GetAll()
+    public Response<List<Location>> GetAll()
     {
         var response = locationService.GetAll();
         return response;
     }
 
+    [HttpPost("{id:int}")]
+    public Response<Location> GetLocationById(int id)
+    {
+        var response = locationService.GetLocationById(id);
+        return response;
+    }
     [HttpPost]
-    public bool CreateLocation(Location location)
+    public Response<bool> CreateLocation(Location location)
     {
         var response = locationService.CreateLocation(location);
         return response;
     }
 
     [HttpPut]
-    public bool UpdateLocation(Location location)
+    public Response<bool> UpdateLocation(Location location)
     {
         var response = locationService.UpdateLocation(location);
         return response;
     }
 
     [HttpDelete]
-    public bool DeleteLocation(int id)
+    public Response<bool> DeleteLocation(int id)
     {
         var response = locationService.DeleteLocation(id);
         return response;

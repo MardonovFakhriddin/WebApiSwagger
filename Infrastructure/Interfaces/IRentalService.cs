@@ -1,11 +1,13 @@
-namespace Infrastructure.Interfaces; 
+using Infrastructure.ApiResponse;
+
+namespace Infrastructure.Interfaces;
 using Domain.Models;
 
 public interface IRentalService
 {
-    List<Rental> GetAll();
-    Rental GetRentalById(int id);
-    bool CreateRental(Rental rental);
-    bool UpdateRental(Rental rental);
-    bool DeleteRental(int id);
+    Response<List<Rental>> GetAll();
+    Response<Rental> GetRentalById(int id);
+    Response<bool> CreateRental(Rental rental);
+    Response<bool> UpdateRental(Rental rental);
+    Response<bool> DeleteRental(int id);
 }
