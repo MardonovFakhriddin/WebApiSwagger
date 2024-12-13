@@ -17,23 +17,23 @@ public class CustomerController(ICustomerService customerService) : ControllerBa
     }
 
     [HttpPost]
-    public bool CreateCarLocation(Customer customer)
+    public bool CreateCustomer(Customer customer)
     {
-        var response = customerService.CreateCustomer(car);
+        var response = customerService.CreateCustomer(customer);
         return response;
     }
 
     [HttpPut]
-    public bool UpdateCarLocation(CarLocation car)
+    public bool UpdateCustomer(Customer customer)
     {
-        var response = customerService.UpdateCarLocation(car);
+        var response = customerService.UpdateCustomer(customer);
         return response;
     }
 
     [HttpDelete]
-    public bool DeleteCarLocation(int carId,int id)
+    public bool DeleteCustomer(int id)
     {
-        var response = customerService.DeleteCarLocation(carId,id);
+        var response = customerService.DeleteCustomer(id);
         return response;
     }
 }

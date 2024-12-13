@@ -17,16 +17,16 @@ public class CarLocationController(ICarLocationService carLocationService) : Con
     }
 
     [HttpPost]
-    public bool CreateCarLocation(CarLocation car)
+    public bool CreateCarLocation(CarLocation carLocation)
     {
-        var response = carLocationService.CreateCarLocation(car);
+        var response = carLocationService.CreateCarLocation(carLocation);
         return response;
     }
 
     [HttpPut]
-    public bool UpdateCarLocation(CarLocation car)
+    public bool UpdateCarLocation(CarLocation carLocation)
     {
-        var response = carLocationService.UpdateCarLocation(car);
+        var response = carLocationService.UpdateCarLocation(carLocation);
         return response;
     }
 
